@@ -545,5 +545,22 @@ if(window.wcs) {
 }
 </script>  
   
+<script>
+/* 전환 추적 — sandaetuk와 같은 방식(wcs.cnv 후 wcs_do로 전송). 2026-10-26 수정 */
+function naverConversionCall(){
+  try{
+    if(window.wcs){
+      var _nasa = {};
+      _nasa["cnv"] = wcs.cnv("2","1");
+      wcs_do(_nasa);
+    }
+  }catch(e){}
+  try{
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({event:'phone_click', page:'specialized'});
+  }catch(e){}
+  return true;
+}
+</script>
 </body>
 </html>
