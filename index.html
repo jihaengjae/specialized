@@ -156,8 +156,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
 <script type="text/javascript">
 if(!wcs_add) var wcs_add = {};
-wcs_add["wa"] = "179a22e853134b0";
-if(window.wcs) { wcs_do(); }
+wcs_add["wa"] = "s_41a56e8bcbbe"; /* 네이버 공통키 (광고계정 전환추적 등록키) */
+if(window.wcs) { wcs.inflow("jihaengjae.github.io"); wcs_do(); }
 </script>
 
 <!-- Google Tag Manager -->
@@ -536,23 +536,16 @@ document.querySelectorAll('.faq-q').forEach(q=>{
   });
 </script>
 
-<script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
-<script type="text/javascript">
-if(!wcs_add) var wcs_add = {};
-wcs_add["wa"] = "270bdbe398da10";
-if(window.wcs) {
-  wcs_do();
-}
-</script>  
+  
   
 <script>
-/* 전환 추적 — sandaetuk와 같은 방식(wcs.cnv 후 wcs_do로 전송). 2026-10-26 수정 */
+/* 전환 추적 — 네이버 공통키 + wcs.trans(lead). 2026-10-26 키 교정 */
 function naverConversionCall(){
   try{
     if(window.wcs){
-      var _nasa = {};
-      _nasa["cnv"] = wcs.cnv("2","1");
-      wcs_do(_nasa);
+      var _conv = {};
+      _conv.type = "lead"; /* 신청완료(전화 클릭) - 공식 가이드 wcs.trans 방식 */
+      wcs.trans(_conv);
     }
   }catch(e){}
   try{
